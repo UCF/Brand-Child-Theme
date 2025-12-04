@@ -1,0 +1,8 @@
+{
+    "name": "ucf/brand-child-theme",
+    "description": "WordPress theme for brand website with brand guidelines. This is a child theme of the UCF-WordPress-Theme.",
+    "type": "wordpress-theme",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
