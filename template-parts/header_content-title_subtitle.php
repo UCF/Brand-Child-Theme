@@ -13,7 +13,7 @@ $subtitle_elem = ( $h1 === 'subtitle' ) ? $h1_elem : 'span';
 		<div class="container">
 			<div class="d-inline-block bg-inverse p-4">
 				<div class="framed-primary p-3">
-					<<?php echo $title_elem; ?> class="header-title"><?php echo $title; ?></<?php echo $title_elem; ?>>
+					<<?php echo $title_elem; ?> class="header-title font-condensed text-uppercase"><?php echo $title; ?></<?php echo $title_elem; ?>>
 					<?php if ( $subtitle ) : ?>
 					<div class="clearfix"></div>
 					<div class="d-inline-block">
