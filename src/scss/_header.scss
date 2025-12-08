@@ -1,10 +1,11 @@
 .header-title {
-  font-family: $font-family-condensed;
+  font-size: 3.25rem;
+  font-weight: 900;
 }
 
 .header-subtitle {
-  font-family: $font-family-sans-serif;
-  font-weight: 700;
+  font-family: $font-family-condensed;
+  font-weight: 600;
   padding-top: 0;
   padding-bottom: 0;
 }
