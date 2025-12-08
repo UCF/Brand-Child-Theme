@@ -1,0 +1,15 @@
+.header-title {
+  font-family: $font-family-condensed;
+}
+
+.header-subtitle {
+  font-family: $font-family-sans-serif;
+  font-weight: 700;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.framed-primary {
+  border: 5px solid $brand-primary;
+  clip-path: polygon(0 0, 32px 0, 32px 5px, calc(100% - 5px) 5px, calc(100% - 5px) calc(100% - 32px), 100% calc(100% - 32px), 100% 100%, calc(100% - 32px) 100%, calc(100% - 32px) calc(100% - 5px), 5px calc(100% - 5px), 5px 32px, 0 32px);
+}
