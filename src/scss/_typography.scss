@@ -1,3 +1,19 @@
 .font-condensed {
   font-family: "din-2014-narrow", sans-serif;
+  letter-spacing: normal;
+}
+
+h1.font-condensed,
+h2.font-condensed,
+h3.font-condensed,
+h4.font-condensed,
+h5.font-condensed,
+h6.font-condensed,
+.h1.font-condensed,
+.h2.font-condensed,
+.h3.font-condensed,
+.h4.font-condensed,
+.h5.font-condensed,
+.h6.font-condensed {
+  font-weight: 700 !important;
 }
