@@ -11,9 +11,9 @@ $subtitle_elem = ( $h1 === 'subtitle' ) ? $h1_elem : 'span';
 <?php if ( $title ): ?>
 	<div class="header-content-inner align-self-start pt-4 pt-sm-0 align-self-sm-center">
 		<div class="container">
-			<div class="d-inline-block bg-inverse p-4">
+			<div class="d-inline-block header-box p-4">
 				<div class="framed-primary p-3">
-					<<?php echo $title_elem; ?> class="header-title text-uppercase"><?php echo $title; ?></<?php echo $title_elem; ?>>
+					<<?php echo $title_elem; ?> class="header-title text-inverse text-uppercase"><?php echo $title; ?></<?php echo $title_elem; ?>>
 					<?php if ( $subtitle ) : ?>
 					<div class="clearfix"></div>
 					<div class="d-inline-block">
