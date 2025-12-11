@@ -16,15 +16,41 @@ function ucf_bct_get_header_content_markup( $retval, $obj ) {
 
 	if ( ! $default_header_desktop ) return $retval;
 
+	$header_desktop_id = attachment_url_to_postid( $default_header_desktop );
+	$xl = wp_get_attachment_image_src( $header_desktop_id, 'bg-img-xl' );
+	$lg = wp_get_attachment_image_src( $header_desktop_id, 'bg-img-lg' );
+	$md = wp_get_attachment_image_src( $header_desktop_id, 'bg-img-md' );
+	$sm = wp_get_attachment_image_src( $header_desktop_id, 'bg-img-sm' );
+	$xs = wp_get_attachment_image_src( $header_desktop_id, 'bg-img-xs' );
+
 	ob_start();
 ?>
 <div class="header-media header-media-compact mb-0 d-flex flex-column">
 	<div class="header-media-background-wrap">
 		<div class="header-media-background media-background-container">
 			<picture class="media-background-picture">
-				<source srcset="<?php echo $default_header_desktop; ?>" media="(min-width: 576px)">
+				<?php if ( $xl ) : ?>
+				<source srcset="<?php echo $xl; ?>" media="(min-width: 1200px)">
+				<?php endif; ?>
+
+				<?php if ( $lg ) : ?>
+				<source srcset="<?php echo $lg; ?>" media="(min-width: 992px)">
+				<?php endif; ?>
+
+				<?php if ( $md ) : ?>
+				<source srcset="<?php echo $md; ?>" media="(min-width: 768px)">
+				<?php endif; ?>
+
+				<?php if ( $sm ) : ?>
+				<source srcset="<?php echo $sm; ?>" media="(min-width: 576px)">
+				<?php endif; ?>
+
+				<?php if ( $default_header_mobile ) : ?>
 				<source srcset="<?php echo $default_header_mobile; ?>" media="(max-width: 575px)">
-				<img class="media-background object-fit-cover" src="<?php echo $default_header_desktop; ?>" alt="" data-object-fit="left, top" />
+				<? else: ?>
+				<source srcset="<?php echo $xs; ?>" media="(max-width: 575px)">
+				<?php endif; ?>
+				<img class="media-background object-fit-cover" src="<?php echo $default_header_desktop; ?>" alt="" style="object-position: 0 0; data-object-fit="0 0" />
 			</picture>
 		</div>
 	</div>
