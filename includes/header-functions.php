@@ -61,8 +61,13 @@ add_filter( 'ucfwp_get_header_markup', __NAMESPACE__ . '\ucf_bct_get_header_cont
  * @return string The content type name
  */
 function ucf_bct_get_header_content_type( $retval, $obj ) {
-	$content_type = get_field( 'page_header_content_type', $obj ) ?: '';
-	$header_type  = \ucfwp_get_header_type( $obj );
+	$content_type           = get_field( 'page_header_content_type', $obj ) ?: '';
+	$header_type            = \ucfwp_get_header_type( $obj );
+	$default_header_desktop = get_theme_mod( 'default_header_desktop', null );
+
+	if ( $header_type === '' && $content_type === 'title_subtitle' && ! $default_header_desktop ) {
+		return '';
+	}
 
 	if ( $header_type === '' && $content_type === 'title_subtitle' ) {
 		$retval = 'title_subtitle';
