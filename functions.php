@@ -1,11 +1,12 @@
 <?php
-namespace MyProject\Theme;
+namespace BrandChildTheme\Theme;
 
-define( 'MYPROJECT_THEME_DIR', trailingslashit( get_stylesheet_directory() ) );
+define( 'BCT_THEME_DIR', trailingslashit( get_stylesheet_directory() ) );
 
 
 // Theme foundation
-include_once MYPROJECT_THEME_DIR . 'includes/config.php';
-include_once MYPROJECT_THEME_DIR . 'includes/meta.php';
+include_once BCT_THEME_DIR . 'includes/config.php';
+include_once BCT_THEME_DIR . 'includes/meta.php';
+include_once BCT_THEME_DIR . 'includes/header-functions.php';
 
 // Add other includes to this file as needed.
