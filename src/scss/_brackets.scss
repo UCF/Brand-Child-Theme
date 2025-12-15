@@ -1,0 +1,110 @@
+.brackets-primary-sm,
+.brackets-secondary-sm,
+.brackets-complementary-sm,
+.brackets-inverse-sm,
+.brackets-success-sm,
+.brackets-info-sm,
+.brackets-warning-sm,
+.brackets-danger-sm {
+  border-style: solid;
+  border-width: 5px;
+  clip-path: create-clip(5px, 24px);
+
+  &.alt-corners {
+    clip-path: create-clip-alt(5px, 24px);
+  }
+
+  &.four-corners {
+    clip-path: create-clip-all(5px, 24px);
+  }
+}
+
+.brackets-primary,
+.brackets-secondary,
+.brackets-complementary,
+.brackets-inverse,
+.brackets-success,
+.brackets-info,
+.brackets-warning,
+.brackets-danger {
+  border-style: solid;
+  border-width: 5px;
+  clip-path: create-clip(5px, 48px);
+
+  &.alt-corners {
+    clip-path: create-clip-alt(5px, 48px);
+  }
+
+  &.four-corners {
+    clip-path: create-clip-all(5px, 48px);
+  }
+}
+
+.brackets-primary-lg,
+.brackets-secondary-lg,
+.brackets-complementary-lg,
+.brackets-inverse-lg,
+.brackets-success-lg,
+.brackets-info-lg,
+.brackets-warning-lg,
+.brackets-danger-lg {
+  border-style: solid;
+  border-width: 5px;
+  clip-path: create-clip(5px, 72px);
+
+  &.alt-corners {
+    clip-path: create-clip-alt(5px, 72px);
+  }
+
+  &.four-corners {
+    clip-path: create-clip-all(5px, 72px);
+  }
+}
+
+.brackets-primary-sm,
+.brackets-primary,
+.brackets-primary-lg {
+  border-color: $brand-primary;
+}
+
+.brackets-secondary-sm,
+.brackets-secondary,
+.brackets-secondary-lg {
+  border-color: $brand-secondary;
+}
+
+.brackets-complementary-sm,
+.brackets-complementary,
+.brackets-complementary-lg {
+  border-color: $brand-complementary;
+}
+
+.brackets-inverse-sm,
+.brackets-inverse,
+.brackets-inverse-lg {
+  border-color: $brand-inverse;
+}
+
+.brackets-success-sm,
+.brackets-success,
+.brackets-success-lg {
+  border-color: $brand-success;
+}
+
+.brackets-info-sm,
+.brackets-info,
+.brackets-info-lgo {
+  border-color: $brand-info;
+}
+
+.brackets-warning-sm,
+.brackets-warning,
+.brackets-warning-lg {
+  border-color: $brand-warning;
+}
+
+.brackets-danger-sm,
+.brackets-danger,
+.brackets-danger-lg {
+  border-color: $brand-danger;
+}

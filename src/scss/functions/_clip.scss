@@ -1,0 +1,66 @@
+@function create-clip($thickness, $size) {
+  $thickness: $thickness + 1px;
+
+  @return polygon(
+    0 0,
+    #{$size} 0,
+    #{$size} #{$thickness},
+    calc(100% - #{$thickness}) #{$thickness},
+    calc(100% - #{$thickness}) calc(100% - #{$size}),
+    100% calc(100% - #{$size}),
+    100% 100%,
+    calc(100% - #{$size}) 100%,
+    calc(100% - #{$size}) calc(100% - #{$thickness}),
+    #{$thickness} calc(100% - #{$thickness}),
+    #{$thickness} #{$size},
+    0 #{$size}
+  );
+}
+
+@function create-clip-alt($thickness, $size) {
+  $thickness: $thickness + 1px;
+
+  @return polygon(
+    #{$size} #{$thickness},
+    calc(100% - #{$size}) #{$thickness},
+    calc(100% - #{$size}) 0,
+    100% 0,
+    100% #{$size},
+    calc(100% - #{$thickness}) #{$size},
+    calc(100% - #{$thickness}) calc(100% - #{$thickness}),
+    #{$size} calc(100% - #{$thickness}),
+    #{$size} 100%,
+    0 100%,
+    0 calc(100% - #{$size}),
+    #{$thickness} calc(100% - #{$size}),
+    #{$thickness} #{$thickness},
+  );
+}
+
+@function create-clip-all($thickness, $size) {
+  $thickness: $thickness + 1px;
+
+  @return polygon(
+    0 0,
+    #{$size} 0,
+    #{$size} #{$thickness},
+    calc(100% - #{$size}) #{$thickness},
+    calc(100% - #{$size}) 0,
+    100% 0,
+    100% #{$size},
+    calc(100% - #{$thickness}) #{$size},
+    calc(100% - #{$thickness}) calc(100% - #{$size}),
+    100% calc(100% - #{$size}),
+    100% 100%,
+    calc(100% - #{$size}) 100%,
+    calc(100% - #{$size}) calc(100% - #{$thickness}),
+    #{$size} calc(100% - #{$thickness}),
+    #{$size} 100%,
+    0 100%,
+    0 calc(100% - #{$size}),
+    #{$size} calc(100% - #{$size}),
+    #{$thickness} calc(100% - #{$thickness}),
+    #{$thickness} #{$size},
+    0 #{$size}
+  );
+}
