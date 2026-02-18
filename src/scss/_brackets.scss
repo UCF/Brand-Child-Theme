@@ -1,110 +1,64 @@
-.brackets-primary-sm,
-.brackets-secondary-sm,
-.brackets-complementary-sm,
-.brackets-inverse-sm,
-.brackets-success-sm,
-.brackets-info-sm,
-.brackets-warning-sm,
-.brackets-danger-sm {
-  border-style: solid;
-  border-width: 5px;
-  clip-path: create-clip(5px, 24px);
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:math';
 
-  &.alt-corners {
-    clip-path: create-clip-alt(5px, 24px);
-  }
+$layouts: (
+  '': (true, false, true, false),
+  '-alt': (false, true, false, true),
+  '-full': (true, true, true, true),
+  '-top-left': (true, false, false, false),
+  '-top-right': (false, true, false, false),
+  '-bottom-right': (false, false, true, false),
+  '-bottom-left': (false, false, false, true),
+);
 
-  &.four-corners {
-    clip-path: create-clip-all(5px, 24px);
-  }
-}
+$thickness: 5px;
 
-.brackets-primary,
-.brackets-secondary,
-.brackets-complementary,
-.brackets-inverse,
-.brackets-success,
-.brackets-info,
-.brackets-warning,
-.brackets-danger {
-  border-style: solid;
-  border-width: 5px;
-  clip-path: create-clip(5px, 48px);
+$sizes: (
+  'sm': 24px,
+  'default': 48px,
+  'lg': 72px
+);
 
-  &.alt-corners {
-    clip-path: create-clip-alt(5px, 48px);
-  }
+@each $label, $layout in $layouts {
+  .brackets#{$label} {
+    $size: map.get($sizes, 'default');
 
-  &.four-corners {
-    clip-path: create-clip-all(5px, 48px);
-  }
-}
+    border-width: $thickness;
+    border-style: solid;
+    border-color: $brand-primary;
 
-.brackets-primary-lg,
-.brackets-secondary-lg,
-.brackets-complementary-lg,
-.brackets-inverse-lg,
-.brackets-success-lg,
-.brackets-info-lg,
-.brackets-warning-lg,
-.brackets-danger-lg {
-  border-style: solid;
-  border-width: 5px;
-  clip-path: create-clip(5px, 72px);
+    // padding should be equal to the size of the bracket
+    padding: $size - $thickness;
 
-  &.alt-corners {
-    clip-path: create-clip-alt(5px, 72px);
-  }
+    clip-path: create-bracket-clip(
+      5px,
+      $size,
+      list.nth($layout, 1),
+      list.nth($layout, 2),
+      list.nth($layout, 3),
+      list.nth($layout, 4)
+    );
 
-  &.four-corners {
-    clip-path: create-clip-all(5px, 72px);
+    @each $slabel, $size in $sizes {
+      &.brackets-size-#{$slabel} {
+        padding: $size - $thickness !important;
+
+        clip-path: create-bracket-clip(
+          $thickness,
+          $size,
+          list.nth($layout, 1),
+          list.nth($layout, 2),
+          list.nth($layout, 3),
+          list.nth($layout, 4)
+        ) !important;
+      }
+    }
   }
 }
 
-.brackets-primary-sm,
-.brackets-primary,
-.brackets-primary-lg {
-  border-color: $brand-primary;
-}
-
-.brackets-secondary-sm,
-.brackets-secondary,
-.brackets-secondary-lg {
-  border-color: $brand-secondary;
-}
-
-.brackets-complementary-sm,
-.brackets-complementary,
-.brackets-complementary-lg {
-  border-color: $brand-complementary;
-}
-
-.brackets-inverse-sm,
-.brackets-inverse,
-.brackets-inverse-lg {
-  border-color: $brand-inverse;
-}
-
-.brackets-success-sm,
-.brackets-success,
-.brackets-success-lg {
-  border-color: $brand-success;
-}
-
-.brackets-info-sm,
-.brackets-info,
-.brackets-info-lgo {
-  border-color: $brand-info;
-}
-
-.brackets-warning-sm,
-.brackets-warning,
-.brackets-warning-lg {
-  border-color: $brand-warning;
-}
-
-.brackets-danger-sm,
-.brackets-danger,
-.brackets-danger-lg {
-  border-color: $brand-danger;
+@each $label, $color in $brand-colors {
+  .brackets-color-#{$label} {
+    border-color: map.get($color, 'color');
+  }
 }
