@@ -58,15 +58,6 @@ function ucf_bct_get_header_content_markup( $retval, $obj ) {
 	// Display the site nav
 	if ( !$exclude_nav ) { echo \ucfwp_get_nav_markup(); }
 	?>
-	<div class="header-content">
-		<div class="header-content-flexfix">
-			<?php echo \ucfwp_get_header_content_markup(); ?>
-		</div>
-	</div>
-	<?php if ( $videos || $header_content_type === 'title_subtitle' ): ?>
-	<div class="header-media-controlfix"></div>
-	<?php endif; ?>
-
 </div>
 <?php
 	$retval = ob_get_clean();
@@ -103,3 +94,30 @@ function ucf_bct_get_header_content_type( $retval, $obj ) {
 }
 
 add_filter( 'ucfwp_get_header_content_type', __NAMESPACE__ . '\ucf_bct_get_header_content_type', 10, 2 );
+
+/**
+ * Hook for getting the nav markup in a header
+ * @author Jim Barnes
+ * @since 1.0.1
+ * @param string $retval
+ *
+ * @return string
+ */
+function ucf_bct_get_nav_markup( $retval ) {
+	$obj                = \ucfwp_get_queried_object();
+	$header_type        = \ucfwp_get_header_type( $obj );
+	$template_part_name =
+		$header_type === 'media' ?
+		\ucfwp_get_nav_type() :
+		'title';
+
+	set_query_var( 'ucfwp_image_behind_nav', true );
+
+	ob_start();
+	get_template_part( \ucfwp_get_template_part_slug( 'nav' ), $template_part_name );
+	$retval = trim( ob_get_clean() );
+
+	return $retval;
+}
+
+add_filter( 'ucfwp_get_nav_markup', __NAMESPACE__ . '\ucf_bct_get_nav_markup', 9, 1 );
