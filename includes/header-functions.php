@@ -98,7 +98,7 @@ add_filter( 'ucfwp_get_header_content_type', __NAMESPACE__ . '\ucf_bct_get_heade
 /**
  * Hook for getting the nav markup in a header
  * @author Jim Barnes
- * @since 1.0.1
+ * @since 0.4.2
  * @param string $retval
  *
  * @return string
