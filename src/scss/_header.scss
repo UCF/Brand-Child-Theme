@@ -13,6 +13,14 @@
   text-shadow: 2px 2px 0 black;
 }
 
+.header-media-compact {
+  min-height: 120px;
+
+  @include media-breakpoint-up(sm) {
+    min-height: revert;
+  }
+}
+
 .navbar-inverse .navbar-nav .active > .nav-link,
 .navbar-inverse .navbar-nav .nav-link.active {
   background-color: rgba(0, 0, 0, .75);
